@@ -1804,3 +1804,48 @@ a:hover { color: var(--color-primary-hover); }
   white-space: nowrap;
 }
 .nav-brand { white-space: nowrap; }
+
+/* ── SCENARIO TIER LABELS (bull / base / bear) ── */
+.scenario-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  line-height: 1.25;
+}
+.sc-tier {
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  opacity: 0.72;
+  text-transform: uppercase;
+}
+.sc-label { font-weight: 600; }
+.scenario-btn--bull .sc-tier { color: var(--color-bull); }
+.scenario-btn--base .sc-tier { color: var(--color-primary); }
+.scenario-btn--bear .sc-tier { color: var(--color-bear); }
+.scenario-btn.active .sc-tier { opacity: 1; }
+
+/* Scenario panel headline gets a matching tier chip */
+.scenario-panel::before {
+  content: attr(data-tier);
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--color-text-faint);
+  margin-bottom: var(--space-2);
+}
+.scenario-panel.scenario-bull::before { content: 'BULL CASE'; color: var(--color-bull); }
+.scenario-panel.scenario-base::before { content: 'BASE CASE'; color: var(--color-primary); }
+.scenario-panel.scenario-bear::before { content: 'BEAR CASE'; color: var(--color-bear); }
+.scenario-panel:not(.scenario-bull):not(.scenario-base):not(.scenario-bear)::before {
+  content: 'CUSTOM'; color: var(--color-text-faint);
+}
+
+@media (max-width: 560px) {
+  .scenario-toggles { flex-wrap: wrap; }
+  .scenario-btn { flex: 1 1 100%; }
+}
