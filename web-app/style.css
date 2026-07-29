@@ -1917,3 +1917,56 @@ a:hover { color: var(--color-primary-hover); }
   line-height: 1.7;
   margin: var(--space-4) 0 0;
 }
+
+/* ── "ARE WE EXPECTING A BEAT?" CALLOUT ──────── */
+.beat-call {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5) var(--space-6);
+  align-items: flex-start;
+  margin-top: var(--space-8);
+  padding: var(--space-6);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-left-width: 4px;
+  border-radius: var(--radius-lg);
+}
+.beat-call--yes   { border-left-color: var(--color-positive); }
+.beat-call--mixed { border-left-color: #D69E2E; }
+.beat-call--no    { border-left-color: var(--color-negative); }
+
+.beat-call-verdict {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  flex: 0 0 auto;
+  min-width: 92px;
+}
+.beat-call--yes   .beat-call-verdict { color: var(--color-positive); }
+.beat-call--mixed .beat-call-verdict { color: #D69E2E; }
+.beat-call--no    .beat-call-verdict { color: var(--color-negative); }
+
+.beat-call-body { flex: 1 1 380px; min-width: 0; }
+.beat-call-body h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  margin: 0 0 var(--space-3);
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+.beat-call-body h3 span {
+  display: block;
+  color: var(--color-text);
+  font-weight: 800;
+  font-size: var(--text-lg);
+  margin-top: var(--space-1);
+}
+.beat-call-body p {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.75;
+}
+.beat-call-body strong { color: var(--color-text); }
